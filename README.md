@@ -1,4 +1,4 @@
-# 🛡️ CIVICFIX — AI-Powered Civic Intelligence & Hazard-Aware Navigation
+# 🛡️ CIVICFIX — AI-Powered Civic Intelligence Platform
 
 > **Built by CYBERNAUTS for SATHACK @ THAPAR UNIVERSITY**  
 > *"REPORT SMARTER. MOVE SAFER. REPAIR FASTER."*
@@ -7,85 +7,79 @@ CivicFix is a next-generation civic intelligence platform that transforms tradit
 
 ---
 
-## 🌟 The 6-Stage Civic Architecture
+## 🎨 New Design System & Brand Palette
 
-```
-[01. REPORT] ──> [02. DETECT] ──> [03. CONNECT] ──> [04. PRIORITISE] ──> [05. DISPATCH] ──> [06. VERIFY]
-  Citizen          AI Vision       Smart Geo-          Weighted Risk        Unified Work        Citizen Quorum
-  Photo + GPS      Crater > 3m     Clustering Hub      & Hospital Zone      Order & Materials   Before/After
-```
-
-1. **REPORT**: Citizens photograph civic issues with GPS geotagging and issue categorization.
-2. **DETECT**: AI Vision models classify hazard type, measure crater dimensions (e.g., >3.0m severe threshold), and assess urgency.
-3. **CONNECT**: Smart spatial clustering algorithm links related reports into unified missions, eliminating duplicate deployments.
-4. **PRIORITISE**: Dynamic scoring prioritizes issues by size, road traffic volume, and proximity to critical infrastructure (Hospitals, Schools, Emergency corridors).
-5. **DISPATCH**: Generates comprehensive work orders with assigned crews, material calculations (asphalt tonnage, pumps, grates), and multi-stop optimized truck routes.
-6. **VERIFY**: Closed-loop trust where contractors upload repair proof and local citizens inspect interactive Before/After sliders to vote and officially reopen roads.
+### Strict Brand Palette:
+- **LIGHT THEME**:
+  - Primary blue: `#5797DB`
+  - Light canvas background: `#EBEBEB`
+  - Secondary dark grey: `#474647`
+- **DARK THEME**:
+  - Primary blue: `#153C65`
+  - Secondary grey: `#999999`
+  - Main background: `#343234`
+- **Typography**:
+  - **ALL TEXT IS WHITE (`#FFFFFF`) IN BOTH LIGHT AND DARK THEMES.**
+  - In light mode, content surfaces, cards and headers utilize contrasting dark grey (`#474647`) and blue surfaces so text is always high-contrast and readable.
+- **Theme Toggle**:
+  - Main navigation header includes a persistent Sun / Moon theme switcher with `localStorage` memory and system preference support.
 
 ---
 
-## 🚀 Key Innovations & Features
+## 🗺️ Multi-Page Architecture
 
-### 1. Hazard-Aware Commuter Navigation & Rerouting
-- **Automatic Rerouting for Severe Hazards**: Potholes with a diameter $\ge 3.0\text{ m}$ or severe waterlogging automatically trigger commuter rerouting around the hazard zone.
-- **Critical Infrastructure Weighting**: Road segments within 200m of Hospitals or Schools are automatically elevated to Tier-1 Emergency priority.
-- **Route Comparison**: Interactive side-by-side comparison between the Dangerous Direct Route (craters, delays, 89/100 risk) and the CivicFix AI Safe Alternate Route (smooth bypass, saves 16 mins, 8/100 risk).
-- **Google Maps Platform Integration**: One-click deep link to open verified routes in external navigation engines.
+CivicFix is structured into distinct, dedicated page experiences powered by **React Router**:
 
-### 2. Low-Density Rural Locality Protocol
-- **The Problem**: In remote villages or low-density sectors, only one citizen might report a dangerous road crater.
-- **CivicFix AI Solution**: Locality density awareness dynamically adjusts confirmation thresholds. For rural zones, a single citizen report is verified using EXIF metadata, GPS authenticity, and AI visual integrity checks, promoting it directly to dispatch without requiring duplicate reports.
+### 🏠 Landing Page (`/`)
+- Focused, clutter-free homepage.
+- Value proposition & short project description.
+- Direct entry CTAs to **Citizen Portal** and **City Operations**.
+- Summary impact metrics and 6-stage connected workflow.
 
-### 3. Chronic Root Cause Discovery & AI Suggestions
-- **Chronic Failure Detection**: If a road repeatedly experiences waterlogging despite surface pothole patching, the AI detects the recurring failure pattern.
-- **Engineering Advisory**: Generates specific root-cause diagnostics (e.g., *"Subsurface drainage gradient reversal at Culvert #12 — halt surface asphalt patching; overhaul 140m stormwater conduit"*).
-- **Direct Contractor Dispatch**: One-click dispatch of civil engineering advisories to the responsible infrastructure company.
+---
 
-### 4. Road Health Scorecard (0–100) & Weather Integration
-- Every road corridor is assigned an automated **Road Health Score** computed from monthly pothole frequency, drainage failure rates, and repair durability (e.g., Sector 14 Link Road: `38/100 - Critical`).
-- **Live Monsoon Precipitation Radar**: Simulates rainstorm alerts (42mm/hr precipitation). Roads with historical waterlogging vulnerability are automatically badged as **Logging-Prone Corridors**.
+### 🚗 Citizen Experience (`/citizen/...`)
+1. **Overview** (`/citizen`): Concise welcome, 4 key summary metrics, compact hazard preview, recent complaints, and quick actions.
+2. **Live Hazard Map** (`/citizen/map`): Full-page GIS map with Leaflet, category & severity filters, search, and selected hazard telemetry.
+3. **Report an Issue** (`/citizen/report`): Photo upload with simulated computer vision bounding box measurement, crater diameter evaluation (&gt;3m severe threshold), rural village 1-user authenticity validation, and hospital proximity rules.
+4. **My Reports** (`/citizen/my-reports`): Community complaints tracker with filter by status (Dispatched, Clustered, Verifying, Resolved) and detailed audit modals.
+5. **Safe Navigation** (`/citizen/navigation`): Hazard-aware route planner comparing Direct Hazardous Path (craters, delays, 89/100 risk) against AI Safe Alternate Bypass (saves 16 mins, 8/100 risk) with one-click Google Maps export.
+6. **AI Intelligence** (`/citizen/ai`): Deep dive into AI models: CV-YOLO crater meter, spatial DBSCAN clustering, perceptual similarity hashing, and weighted priority scoring.
+7. **Repair Tracking** (`/citizen/repair-tracking`): Municipal work orders with assigned crews, allocated materials, and an interactive **Before/After dual image comparison slider** with citizen quorum voting (15 sign-offs to reopen).
+8. **About CivicFix** (`/citizen/about`): Product purpose, 6-stage workflow, and Hackathon Cybernauts team background.
 
-### 5. Smart Clustering Command Center
-- Consolidates scattered complaints (Pothole Block A, Road Damage Block B, Waterlogging Block A, Broken Drain Block C) into a single unified mission.
-- **Reduces duplicate municipal visits by up to 64%**.
-- Generates required materials list (Cold asphalt premix tonnage, traffic barricades, submersible de-watering pumps, cast-iron grates).
+---
 
-### 6. Interactive Before/After Citizen Quorum Verification
-- Contractors cannot unilaterally mark an issue resolved.
-- Interactive dual-image comparison slider allows citizens within the geofence to verify repair quality.
-- Reaching quorum (e.g., 15 citizen sign-offs) officially marks the road **SAFE** and clears navigation hazard warnings.
+### ⚡ City Operations & Admin Portal (`/admin/...`)
+1. **Operations Overview** (`/admin`): High-level operational metrics, category distributions, and real-time dispatch feed.
+2. **Complaint Management** (`/admin/complaints`): Searchable audit table with lifecycle status controls (Dispatched, Repairing, Verifying, Resolved).
+3. **Hazard Clusters** (`/admin/clusters`): Spatial clustering engine showing how scattered nearby complaints merge into consolidated repair missions (-64% duplicated crew deployments).
+4. **Repair Work Orders** (`/admin/work-orders`): Dispatch sheet manager, vehicle registration tracking, materials calculator, and lifecycle stage advancement.
+5. **Crew Management** (`/admin/crews`): Maintenance contractor roster (Rapid Response Unit 04, Rural Mobile Gang 02, etc.), technician counts, and active assignments.
+6. **Infrastructure Analytics** (`/admin/analytics`): Corridor Road Health Scores (0-100), chronic failure detection, monsoon rainstorm simulator (42mm/hr), and AI subsurface drainage engineering recommendations.
+7. **Citizen Verification** (`/admin/verification`): Final municipal sign-off audit reconciling contractor proof photos with community quorum votes before marking roads safe.
 
 ---
 
 ## 🛠️ Technology Stack
 
-- **Frontend**: React.js 18, Tailwind CSS, Leaflet, React-Leaflet
-- **Design System**: Linear/Stripe-inspired midnight aesthetic (`#070A10`), electric cyan (`#00F2FE`), amber warnings, and telemetry typography (`Inter`, `JetBrains Mono`)
-- **Maps**: CartoDB Dark Matter GIS tiles with custom animated SVG radar markers
-- **Build Tool**: Vite 5
+- **Framework**: React 18, React Router v6, Vite 5
+- **Styling**: Tailwind CSS with custom CSS variables theme engine
+- **Mapping**: Leaflet & React-Leaflet with CartoDB Dark Matter GIS tiles
 - **Icons**: Lucide React
+- **Typography**: Inter & JetBrains Mono
 
 ---
 
 ## 💻 Local Development Setup
 
 ```bash
-# 1. Clone repository / navigate to project
-cd CivicFix.Frontend
-
-# 2. Install dependencies
+# 1. Install dependencies
 npm install
 
-# 3. Start development server
+# 2. Run development server (port 3000)
 npm run dev
 
-# 4. Build production bundle
+# 3. Build production bundle
 npm run build
 ```
-
----
-
-## 👥 Hackathon Team: CYBERNAUTS
-
-Developed for **SATHACK / THAPAR UNIVERSITY**.
-*"Build Smarter Streets, Together."*

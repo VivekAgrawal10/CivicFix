@@ -8,31 +8,38 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#070A10',
-        navy: {
-          950: '#070A10',
-          900: '#0B101D',
-          850: '#0F1626',
-          800: '#141D32',
-          750: '#1A253F',
-          700: '#223052',
+        // Strict CivicFix Brand Palette
+        // Light Theme: Primary #5797DB, Light bg #EBEBEB, Secondary dark grey #474647
+        // Dark Theme: Primary #153C65, Secondary grey #999999, Main bg #343234
+        brand: {
+          blue: {
+            light: '#5797DB',
+            dark: '#153C65',
+            DEFAULT: 'var(--color-primary)',
+            hover: 'var(--color-primary-hover)',
+          },
+          canvas: 'var(--color-bg-canvas)',
+          surface: 'var(--color-surface)',
+          'surface-card': 'var(--color-surface-card)',
+          'surface-hover': 'var(--color-surface-hover)',
+          'surface-elevated': 'var(--color-surface-elevated)',
+          border: 'var(--color-border)',
+          'border-active': 'var(--color-border-active)',
+          grey: {
+            dark: '#474647',
+            light: '#999999',
+            canvas: '#EBEBEB',
+            darkbg: '#343234',
+            DEFAULT: 'var(--color-secondary-grey)'
+          }
         },
-        cyan: {
-          DEFAULT: '#00F2FE',
-          glow: '#00F2FE33',
-          400: '#22D3EE',
-          500: '#06B6D4',
-        },
-        teal: {
-          accent: '#00E5BE',
-          400: '#2DD4BF',
-        },
+        // Restrained semantic status indicators
         hazard: {
-          critical: '#EF4444',
-          high: '#F97316',
-          medium: '#EAB308',
-          low: '#10B981',
-          purple: '#8B5CF6',
+          critical: '#DC2626',
+          warning: '#D97706',
+          caution: '#CA8A04',
+          safe: '#16A34A',
+          info: '#2563EB',
         }
       },
       fontFamily: {
@@ -40,28 +47,9 @@ export default {
         mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
       boxShadow: {
-        'glow-cyan': '0 0 25px -5px rgba(0, 242, 254, 0.25)',
-        'glow-teal': '0 0 25px -5px rgba(0, 229, 190, 0.25)',
-        'glow-danger': '0 0 25px -5px rgba(239, 68, 68, 0.3)',
-        'card': '0 4px 20px -2px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.06)',
-      },
-      keyframes: {
-        pulseSlow: {
-          '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0.4' },
-        },
-        scanline: {
-          '0%': { transform: 'translateY(-100%)' },
-          '100%': { transform: 'translateY(1000%)' },
-        },
-        shimmer: {
-          '0%': { backgroundPosition: '-200% 0' },
-          '100%': { backgroundPosition: '200% 0' },
-        }
-      },
-      animation: {
-        'pulse-slow': 'pulseSlow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'scan': 'scanline 2.5s ease-in-out infinite',
+        'card': '0 2px 8px -1px rgba(0, 0, 0, 0.25), 0 0 0 1px var(--color-border)',
+        'card-elevated': '0 10px 25px -5px rgba(0, 0, 0, 0.35), 0 0 0 1px var(--color-border)',
+        'btn': '0 2px 4px rgba(0, 0, 0, 0.2)',
       }
     },
   },
