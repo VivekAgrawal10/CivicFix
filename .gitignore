@@ -1,0 +1,18 @@
+node_modules/
+dist/
+.DS_Store
+.env
+.env.*
+!.env.example
+*.log
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+# Uploads (keep the folder)
+backend/uploads/*
+!backend/uploads/.gitkeep
+# Downloaded ML weights / local artifacts
+ai-service/artifacts/models/*
+!ai-service/artifacts/models/.gitkeep

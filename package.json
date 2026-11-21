@@ -1,0 +1,21 @@
+{
+  "name": "civicfix",
+  "private": true,
+  "version": "1.0.0",
+  "description": "CivicFix — AI-assisted civic issue reporting (frontend + API + AI service + chatbot)",
+  "scripts": {
+    "setup": "bash scripts/setup.sh",
+    "dev": "concurrently -k -n ai,api,bot,web -c magenta,green,yellow,cyan \"npm:dev:ai\" \"npm:dev:api\" \"npm:dev:bot\" \"npm:dev:web\"",
+    "dev:ai": "cd ai-service && python3 -m uvicorn app.main:app --port 8000",
+    "dev:api": "cd backend && node server.js",
+    "dev:bot": "cd chatbot/server && node server.js",
+    "dev:web": "cd frontend && npm run dev",
+    "seed": "cd backend && npm run seed",
+    "test": "npm run test:api && npm run test:ai",
+    "test:api": "cd backend && npm test",
+    "test:ai": "cd ai-service && python3 -m pytest -q"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}

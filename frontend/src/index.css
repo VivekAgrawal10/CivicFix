@@ -1,0 +1,327 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* ========================================================
+     CIVICFIX LIGHT THEME (Strict Specification)
+     - ALL cards: #83B6A0
+     - ALL boxes and container surfaces: #83B6A0
+     - ALL text: #17232D (dark black)
+     - Subtle, consistent borders
+     ======================================================== */
+  --color-bg-canvas: #F5F8FA;
+  --color-surface-card: #83B6A0;
+  --color-surface-elevated: #83B6A0;
+  --color-surface-input: #83B6A0;
+  --color-surface-hover: rgba(23, 35, 45, 0.08);
+  --color-border: rgba(23, 35, 45, 0.20);
+  --color-primary: #9ED1BC;
+  --color-primary-text: #17232D;
+  --color-accent: #72A590;
+  --color-accent-text: #17232D;
+  --color-text: #17232D;
+  --color-text-muted: #243542;
+}
+
+.dark {
+  /* ========================================================
+     CIVICFIX DARK THEME (Unchanged - Strict Specification)
+     - Background: #17232D
+     - Cards: #22323E
+     - Borders: #344956
+     - Primary: #8FB8D0
+     - Accent: #83B6A0
+     - Text: #E6EDF2
+     ======================================================== */
+  --color-bg-canvas: #17232D;
+  --color-surface-card: #22323E;
+  --color-surface-elevated: #1B2934;
+  --color-surface-input: #1B2934;
+  --color-surface-hover: rgba(255, 255, 255, 0.06);
+  --color-border: #344956;
+  --color-primary: #8FB8D0;
+  --color-primary-text: #17232D;
+  --color-accent: #83B6A0;
+  --color-accent-text: #17232D;
+  --color-text: #E6EDF2;
+  --color-text-muted: #A8BAC6;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-bg-canvas);
+    color: var(--color-text);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-text);
+  }
+
+  p, span, label {
+    color: var(--color-text);
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: var(--color-text-muted);
+    opacity: 0.7;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-canvas);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* Card Utilities */
+.civic-card {
+  background-color: var(--color-surface-card);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  color: var(--color-text);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.civic-card-elevated {
+  background-color: var(--color-surface-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.08);
+  color: var(--color-text);
+}
+
+.civic-input {
+  background-color: var(--color-surface-input);
+  border: 1px solid var(--color-border);
+  color: var(--color-text) !important;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.civic-input:focus {
+  outline: none;
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 2px rgba(36, 68, 92, 0.15);
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-primary-text) !important;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid var(--color-border);
+}
+
+.btn-primary * {
+  color: var(--color-primary-text) !important;
+}
+
+.btn-primary:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: var(--color-surface-card);
+  color: var(--color-text) !important;
+  font-weight: 500;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-secondary * {
+  color: var(--color-text) !important;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-surface-elevated);
+  border-color: var(--color-primary);
+}
+
+.btn-accent {
+  background-color: var(--color-accent);
+  color: var(--color-accent-text) !important;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid var(--color-border);
+}
+
+.btn-accent * {
+  color: var(--color-accent-text) !important;
+}
+
+.btn-accent:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+/* Map Theming */
+.leaflet-container {
+  background-color: var(--color-bg-canvas) !important;
+  font-family: 'Inter', system-ui, sans-serif !important;
+  border-radius: 0.75rem;
+}
+
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+  background: var(--color-surface-card) !important;
+  color: var(--color-text) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 0.5rem !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1) !important;
+}
+
+.leaflet-popup-content {
+  margin: 12px 14px !important;
+  line-height: 1.4 !important;
+  color: var(--color-text) !important;
+}
+
+.leaflet-popup-content * {
+  color: var(--color-text) !important;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  color: var(--color-text-muted) !important;
+}
+
+/* ========================================================
+   STRICT LIGHT THEME RULES
+   - All cards, boxes and container surfaces: #83B6A0
+   - All text: #17232D (dark black)
+   - Do not leave some cards white and others green
+   ======================================================== */
+html:not(.dark) {
+  color: #17232D;
+}
+
+html:not(.dark) body {
+  background-color: var(--color-bg-canvas);
+  color: #17232D;
+}
+
+html:not(.dark) h1,
+html:not(.dark) h2,
+html:not(.dark) h3,
+html:not(.dark) h4,
+html:not(.dark) h5,
+html:not(.dark) h6,
+html:not(.dark) p,
+html:not(.dark) span:not(.text-white),
+html:not(.dark) label,
+html:not(.dark) a:not(.btn-primary):not(.btn-accent),
+html:not(.dark) strong,
+html:not(.dark) th,
+html:not(.dark) td {
+  color: #17232D;
+}
+
+html:not(.dark) .civic-card,
+html:not(.dark) .civic-card-elevated,
+html:not(.dark) .bg-brand-card,
+html:not(.dark) .bg-brand-surface,
+html:not(.dark) .bg-brand-surface-elevated,
+html:not(.dark) .bg-white {
+  background-color: #83B6A0 !important;
+  color: #17232D !important;
+  border-color: rgba(23, 35, 45, 0.20) !important;
+}
+
+html:not(.dark) .civic-input,
+html:not(.dark) input,
+html:not(.dark) textarea,
+html:not(.dark) select {
+  background-color: #83B6A0 !important;
+  color: #17232D !important;
+  border-color: rgba(23, 35, 45, 0.25) !important;
+}
+
+html:not(.dark) select option {
+  background-color: #83B6A0 !important;
+  color: #17232D !important;
+}
+
+html:not(.dark) input::placeholder,
+html:not(.dark) textarea::placeholder {
+  color: rgba(23, 35, 45, 0.65) !important;
+}
+
+html:not(.dark) .btn-primary {
+  background-color: #9ED1BC !important;
+  color: #17232D !important;
+  border: 1px solid rgba(23, 35, 45, 0.22) !important;
+}
+
+html:not(.dark) .btn-primary * {
+  color: #17232D !important;
+}
+
+html:not(.dark) .btn-secondary {
+  background-color: #83B6A0 !important;
+  color: #17232D !important;
+  border: 1px solid rgba(23, 35, 45, 0.25) !important;
+}
+
+html:not(.dark) .btn-secondary * {
+  color: #17232D !important;
+}
+
+html:not(.dark) .btn-accent {
+  background-color: #72A590 !important;
+  color: #17232D !important;
+  border: 1px solid rgba(23, 35, 45, 0.22) !important;
+}
+
+html:not(.dark) .btn-accent * {
+  color: #17232D !important;
+}
+
+
+/* Map HUD panels (CivicMap overlays) and hidden scrollbars for filter tabs */
+.glass-panel {
+  background: var(--color-surface-card);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
