@@ -1,0 +1,4 @@
+# OPTIONAL: pretrained CLIP scene classifier (about 600 MB of weights are downloaded on first use)
+-r requirements.txt
+torch>=2.2
+transformers>=4.40

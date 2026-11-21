@@ -1,0 +1,152 @@
+{
+  "dataset": "synthetic weak-label benchmark",
+  "real_world_validation": "incomplete",
+  "warning": "Relative-area ranges do not overlap class boundaries, encoding the weak-label rule and making high F1 artificially separable. Do not treat this as real-world performance.",
+  "split": {
+    "train": 210,
+    "test": 90,
+    "stratified": true
+  },
+  "cross_validation": {
+    "type": "StratifiedKFold",
+    "n_splits": 5,
+    "shuffle": true,
+    "random_state": 42
+  },
+  "winner_by_cv_macro_f1": "gradient_boosting",
+  "results": {
+    "gradient_boosting": {
+      "best_params": {
+        "max_depth": 1,
+        "n_estimators": 50
+      },
+      "cv_macro_f1_mean": 0.9856593640501685,
+      "cv_macro_f1_std": 0.0191361628918417,
+      "test_macro_f1": 1.0,
+      "confusion_matrix": [
+        [
+          30,
+          0,
+          0
+        ],
+        [
+          0,
+          30,
+          0
+        ],
+        [
+          0,
+          0,
+          30
+        ]
+      ],
+      "classification_report": {
+        "minor": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 30.0
+        },
+        "moderate": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 30.0
+        },
+        "severe": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 30.0
+        },
+        "accuracy": 1.0,
+        "macro avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 90.0
+        },
+        "weighted avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 90.0
+        }
+      },
+      "feature_importance": {
+        "relative_area": 1.0,
+        "sharpness_proxy": 0.0,
+        "brightness": 0.0,
+        "safety_indicator": 0.0
+      }
+    },
+    "random_forest": {
+      "best_params": {
+        "max_depth": 3,
+        "n_estimators": 50
+      },
+      "cv_macro_f1_mean": 0.9856593640501685,
+      "cv_macro_f1_std": 0.0191361628918417,
+      "test_macro_f1": 1.0,
+      "confusion_matrix": [
+        [
+          30,
+          0,
+          0
+        ],
+        [
+          0,
+          30,
+          0
+        ],
+        [
+          0,
+          0,
+          30
+        ]
+      ],
+      "classification_report": {
+        "minor": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 30.0
+        },
+        "moderate": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 30.0
+        },
+        "severe": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 30.0
+        },
+        "accuracy": 1.0,
+        "macro avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 90.0
+        },
+        "weighted avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 90.0
+        }
+      },
+      "feature_importance": {
+        "relative_area": 0.8744704844963723,
+        "sharpness_proxy": 0.06601021463298493,
+        "brightness": 0.04571463695637315,
+        "safety_indicator": 0.01380466391426955
+      }
+    },
+    "dummy_baseline": {
+      "test_macro_f1": 0.16666666666666666
+    }
+  }
+}
